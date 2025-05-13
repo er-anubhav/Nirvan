@@ -58,10 +58,6 @@ Coming soon. The team is preparing the first public release. Stay tuned!
 
 We welcome contributors passionate about civic tech and transparency. Open an issue or pull request to get involved.
 
-## 📄 License
-
-[MIT License](LICENSE)
-
 ---
 
 Built by **Team Vercel** to create real change, one complaint at a time.
