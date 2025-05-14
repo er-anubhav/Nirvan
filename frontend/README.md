@@ -1,6 +1,6 @@
 # Nirvana Frontend
 
-The frontend for Nirvan is built with React, TypeScript, and Vite, offering a modern, responsive interface for citizens and officials to interact with the platform.
+The frontend for Nirvana is built with React, TypeScript, and Vite, offering a modern, responsive interface for citizens and officials to interact with the platform.
 
 ## 🌟 What Makes Our Frontend Exceptional
 
