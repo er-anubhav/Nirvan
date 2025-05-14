@@ -4,184 +4,132 @@
 
 Nirvana is a cutting-edge AI-powered civic issue resolution platform designed to restore citizen trust and modernize governance. By harnessing the power of machine learning, real-time data analysis, and multilingual interfaces, Nirvana transforms complaint reporting into a transparent, efficient, and scalable process across cities and agencies.
 
-## 🌟 Why Nirvana Stands Above the Rest
+---
 
-Nirvana represents the pinnacle of civic tech innovation, offering an unparalleled solution for modern governance challenges:
+## 📱 Revolutionary WhatsApp Chat Integration
 
-- **Most Advanced AI Integration**: Our proprietary ML models automatically categorize and prioritize complaints with industry-leading accuracy
-- **Unmatched Real-Time Performance**: Live dashboards and instant notifications keep all stakeholders informed with zero delay
-- **Superior User Experience**: Intuitive, accessible interfaces designed for citizens of all technical abilities
-- **Enterprise-Grade Security**: Bank-level encryption and comprehensive audit trails ensure data integrity
-- **Ultimate Scalability**: Cloud-native architecture handles millions of complaints without performance degradation
+One of Nirvana's most impactful innovations is its **seamless WhatsApp chatbot integration**, enabling citizens to report civic issues in **the most accessible and familiar way possible**—through a simple conversation on their phone.
 
-## 🚀 Key Features
+### 🔍 **Why WhatsApp?**
 
-- 🤖 **AI/ML Complaint Management**  
-  Automatically categorizes and prioritizes issues using text and image recognition with sentiment analysis.
+* **Ubiquitous Access**: With over 2 billion active users globally, WhatsApp is the de facto communication tool for millions of citizens—including those with limited technical skills or low digital literacy.
+* **No App Downloads**: Citizens don’t need to download or learn a new app—just use WhatsApp to engage with local governance.
+* **Real-Time Interaction**: Two-way communication allows instant feedback, live status updates, and quicker resolution acknowledgment.
 
-- 🗺️ **Geo-tagged Reporting**  
-  Citizens can report issues with precise location data, images, and view them on a live heatmap.
+### 🚀 **What the WhatsApp Bot Can Do**
 
-- 📊 **Real-time Dashboards**  
-  Role-based dashboards for officials and citizens with complaint statistics, trends, and resolution progress.
+1. **Instant Greeting and Onboarding**
+   Citizens are welcomed with:
+   *“Hi! Welcome to Nirvana. How can we help you today?”*
 
-- 🗣️ **Multilingual & Inclusive**  
-  Interface supports multiple languages to ensure accessibility for all citizens.
+2. **Structured Complaint Collection**
+   Through a guided chat, users are prompted to:
 
-- 🔐 **Transparent & Auditable**  
-  All official actions are logged with full audit trails for accountability.
+   * Describe the complaint
+   * Share their location (geo-tagging enabled)
+   * Upload an image as evidence
 
-- 🌐 **Modular Architecture**  
-  Built with React, Python, Supabase, and microservices to support scalable, secure deployments.
+3. **AI-Driven Classification**
+   Once submitted, the chatbot triggers backend services that:
 
-## 📋 Installation Guide
+   * Automatically **categorize** the issue (e.g., pothole, streetlight, garbage)
+   * **Prioritize** based on urgency and sentiment
+   * Geotag and log the complaint in Supabase with complete metadata
 
-### Prerequisites
+4. **Live Transparency for Citizens**
+   After submission:
 
-- Node.js v18+ and npm/bun
-- Python 3.10+
-- Git
-- Supabase account (for database and authentication)
+   * Users receive a **ticket ID** and can **track status**
+   * They get notified on **updates, resolution progress, and feedback collection**
 
-### 1. Clone the Repository
+5. **Multilingual Support** (coming soon)
+   Designed to support multiple languages to reach citizens in their native tongues.
 
-```bash
-git clone https://github.com/your-username/nirvan.git
-cd nirvana
+### 🌟 How It Improves Governance
+
+| 🔧 Aspect          | ⚡ With WhatsApp Integration                            |
+| ------------------ | ------------------------------------------------------ |
+| **Transparency**   | Citizens receive real-time updates and resolution logs |
+| **Efficiency**     | Complaints are captured, classified & routed instantly |
+| **Inclusion**      | No digital divide—works for anyone with a phone        |
+| **Verification**   | Images and geolocation validate complaints             |
+| **Accountability** | Audit trails and timestamps for every interaction      |
+
+---
+
+## 🌐 System Architecture Overview
+
+```
+Citizen (via WhatsApp)
+     ↓
+WhatsApp Business API (Webhook → Flask)
+     ↓
+Nirvana Bot (Flask + Python + ML models)
+     ↓
+Supabase (Database + Auth + Real-time Sync)
+     ↓
+Admin Dashboard (React + Vite + Tailwind)
 ```
 
-### 2. Frontend Setup
+* **Frontend:** Admin dashboard for officials to view, filter, and act on complaints
+* **Backend:** Python Flask app with real-time webhook handling for WhatsApp messages
+* **ML Models:** Categorization, prioritization, sentiment analysis
+* **Storage & Sync:** Supabase for structured complaint logs and real-time updates
+* **Location & Media:** Image + GPS capture directly via WhatsApp
+* **Deployment:** Modular microservices for scalability
 
-The frontend is built with React, TypeScript, and Vite for lightning-fast performance.
+---
 
-```bash
-cd frontend
+## 🔧 How to Set Up WhatsApp Integration
 
-# Install dependencies using npm
-npm install
-# OR using Bun for faster installation
-bun install
+1. **Meta Developer Account**
+   Set up your app and phone number via [Meta for Developers](https://developers.facebook.com/)
 
-# Create environment file
-cp .env.example .env
-
-# Add your Supabase credentials to .env file
-# VITE_SUPABASE_URL=your_supabase_url
-# VITE_SUPABASE_KEY=your_supabase_anon_key
-
-# Start development server
-npm run dev
-# OR
-bun run dev
-```
-
-The frontend will be available at http://localhost:5173
-
-### 3. Backend Setup
-
-The backend uses Python with Flask and ML models for intelligent complaint processing.
+2. **Environment Variables in Backend**
 
 ```bash
-cd backend
-
-# Create and activate a virtual environment
-python -m venv venv
-# On Windows
-venv\Scripts\activate
-# On macOS/Linux
-source venv/bin/activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Set up environment variables (Windows PowerShell)
+# Backend environment (PowerShell or .env file)
 $env:SUPABASE_URL="your_supabase_url"
 $env:SUPABASE_KEY="your_supabase_key"
 $env:ACCESS_TOKEN="your_whatsapp_access_token"
 $env:PHONE_NUMBER_ID="your_whatsapp_phone_number_id"
 $env:VERIFY_TOKEN="your_verify_token"
-
-# Start the backend server
-python send_message.py
 ```
 
-The backend API will be available at http://localhost:5000
+3. **Webhook Route in Flask**
 
-### 4. ML Model Setup
+   * Handles incoming messages
+   * Parses text, location, image
+   * Responds with structured messages or status updates
 
-Nirvan uses machine learning models for complaint categorization and prioritization.
+4. **Message Processor**
 
-```bash
-cd backend/models
-
-# Train and save the priority model (if needed)
-python priority_model.py
-
-# Ensure model files are present:
-# - category_encoder.pkl
-# - priority_model.pkl
-```
-
-### 5. Supabase Configuration
-
-1. Create a Supabase project at https://supabase.com
-2. Set up the necessary tables for complaints, users, and notifications
-3. Update the Supabase URL and anon key in both frontend and backend environment variables
-
-## 🧩 System Architecture
-
-- **Frontend:** React with TypeScript, Vite, Tailwind CSS, and shadcn/ui components
-- **Backend:** Python with Flask for API endpoints
-- **Database & Auth:** Supabase for PostgreSQL database and authentication
-- **ML Services:** Scikit-learn models for categorization, priority determination, and sentiment analysis
-- **Data Sync:** Real-time updates via Supabase live queries
-- **Maps:** Leaflet.js for interactive geospatial visualizations
-
-## 🏛️ Use Cases
-
-- **Municipalities:** Modernize public grievance redressal systems
-- **Government Agencies:** Deploy scalable civic engagement tools
-- **NGOs:** Promote transparent governance and citizen participation
-- **Smart City Initiatives:** Integrate with existing urban infrastructure
-- **Disaster Response:** Coordinate rapid response during emergencies
-
-## 💼 Revenue Model
-
-- SaaS subscriptions for local governments with tiered pricing
-- White-label solutions for private/civic organizations
-- Premium analytics dashboards with predictive insights
-- API access for civic tech developers and third-party integrations
-- Sponsored public awareness campaigns and educational modules
-
-## 🌍 Future Roadmap
-
-- Voice-based complaint registration with dialect recognition
-- AI-powered predictive maintenance alerts
-- AR visualization of complaint locations and status
-- Blockchain integration for immutable complaint records
-- API marketplace for third-party civic applications
-
-## 🤝 Contributing
-
-We welcome contributors who are passionate about civic technology and transparency. Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes
-4. Commit your changes (`git commit -m 'Add some amazing feature'`)
-5. Push to the branch (`git push origin feature/amazing-feature`)
-6. Open a Pull Request
-
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
-## 📞 Contact
-
-Project Team - team@nirvan
-
-Project Link: [https://github.com/er-anubhav/nirvana](https://github.com/er-anubhav/nirvan)
+   * Invokes ML models for classification and sentiment analysis
+   * Pushes data to Supabase
+   * Sends acknowledgment and follow-up messages
 
 ---
 
-Built by **Team Vercel** to create real change, one complaint at a time.
+## 💬 Future Enhancements for Chatbot
+
+* **Voice-based complaint filing via WhatsApp voice notes**
+* **Integration with city CRMs and response teams**
+* **Real-time escalations and feedback loops**
+* **Chat analytics and mood detection for issue sentiment**
+* **WhatsApp groups for community-level issue aggregation**
+
+---
+
+## 🧹 Key Features Summary
+
+* 🤖 **AI/ML Complaint Management**
+* 🗺️ **Geo-tagged Reporting**
+* 📊 **Real-time Dashboards**
+* 🗣️ **Multilingual & Inclusive**
+* 🔐 **Transparent & Auditable**
+* 📱 **WhatsApp-Based Citizen Interface** ✅
+* 🌐 **Modular Architecture**
+
+---
+
+The WhatsApp chatbot isn’t just a feature—**it’s a foundational pillar of Nirvana’s mission** to democratize access to responsive governance, remove barriers to participation, and ensure every voice is heard and logged in real-time.
