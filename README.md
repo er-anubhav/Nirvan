@@ -1,6 +1,6 @@
-# Nirvan
+# Nirvansa
 
-Nirvan is an AI-powered civic issue resolution platform designed to restore citizen trust and modernize governance. By leveraging machine learning, real-time data, and multilingual interfaces, Nirvan makes complaint reporting transparent, efficient, and scalable across cities and agencies.
+Nirvana is an AI-powered civic issue resolution platform designed to restore citizen trust and modernize governance. By leveraging machine learning, real-time data, and multilingual interfaces, Nirvan makes complaint reporting transparent, efficient, and scalable across cities and agencies.
 
 ## 🚀 Features
 
