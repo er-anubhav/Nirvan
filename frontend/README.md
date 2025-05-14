@@ -1,54 +1,136 @@
-# React + TypeScript + Vite
+# Nirvana Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The frontend for Nirvan is built with React, TypeScript, and Vite, offering a modern, responsive interface for citizens and officials to interact with the platform.
 
-Currently, two official plugins are available:
+## 🌟 What Makes Our Frontend Exceptional
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Lightning-Fast Performance**: Built on Vite for near-instant hot module replacement
+- **Beautiful Component Library**: Leveraging shadcn/ui for a cohesive design system
+- **Advanced Mapping Capabilities**: Interactive Leaflet maps for visualizing civic issues
+- **Real-Time Updates**: Live data synchronization with Supabase
+- **Fully Responsive Design**: Optimized for all devices from mobile to desktop
+- **Accessibility-First Approach**: WCAG-compliant components and interfaces
 
-## Expanding the ESLint configuration
+## ⚙️ Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 18 with TypeScript
+- Vite build system
+- Tailwind CSS for styling
+- shadcn/ui component library
+- Leaflet for interactive maps
+- Supabase for data and authentication
+- React Router for navigation
+- React Query for data fetching
+- React Hook Form for form handling
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 📋 Installation
+
+### Prerequisites
+
+- Node.js v18+ and npm
+- Bun (optional but recommended for faster installation)
+
+### Setup Steps
+
+1. **Install dependencies**
+
+```bash
+# Using npm
+npm install
+
+# OR using Bun (faster)
+bun install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. **Configure environment variables**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Create a `.env` file in the root of the frontend directory with the following variables:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
 ```
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_KEY=your_supabase_anon_key
+VITE_API_URL=http://localhost:5000  # Backend API URL
+```
+
+3. **Start the development server**
+
+```bash
+# Using npm
+npm run dev
+
+# OR using Bun
+bun run dev
+```
+
+The application will be available at http://localhost:5173
+
+4. **Build for production**
+
+```bash
+# Using npm
+npm run build
+
+# OR using Bun
+bun run build
+```
+
+The build output will be in the `dist` directory, ready for deployment.
+
+## 📂 Project Structure
+
+- `src/` - Source code
+  - `components/` - Reusable UI components
+    - `common/` - Layout and shared components
+    - `map/` - Leaflet map components
+    - `ui/` - shadcn/ui components
+  - `hooks/` - Custom React hooks
+  - `integrations/` - Third-party service integrations
+  - `lib/` - Utility functions and configurations
+  - `pages/` - Application pages and routes
+  - `types/` - TypeScript type definitions
+
+## 🔄 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run build:dev` - Build with development settings
+- `npm run lint` - Run ESLint to check code quality
+- `npm run preview` - Preview production build locally
+
+## 🧩 Key Features
+
+- **Interactive Complaint Maps**: Visualize issues across neighborhoods
+- **Real-Time Dashboards**: Monitor complaint status and trends
+- **Multi-Role Access**: Interfaces for citizens, officials, and administrators
+- **Responsive Design**: Works seamlessly on mobile, tablet, and desktop
+- **Dark/Light Modes**: Optimized viewing experience in any environment
+
+## 🤝 Contributing
+
+Please refer to the main project README for contribution guidelines.
+
+---
+
+Built by **Team Vercel** to create real change, one complaint at a time.
+
+## What technologies are used for this project?
+
+This project is built with:
+
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
+
+## How can I deploy this project?
+
+Simply open [Lovable](https://lovable.dev/projects/9e03a48b-deaf-4519-8179-13af29a086b9) and click on Share -> Publish.
+
+## Can I connect a custom domain to my Lovable project?
+
+Yes, you can!
+
+To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+
+Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)

@@ -1,0 +1,5 @@
+
+project_id = "hewopkgelimedbbcrdfg"
+
+[functions.categorize-complaint]
+verify_jwt = true
