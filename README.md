@@ -1,7 +1,5 @@
 # Nirvana: AI-Powered Civic Issue Resolution Platform
 
-![Nirvana Logo](frontend/public/favicon.ico)
-
 Nirvana is a cutting-edge AI-powered civic issue resolution platform designed to restore citizen trust and modernize governance. By harnessing the power of machine learning, real-time data analysis, and multilingual interfaces, Nirvana transforms complaint reporting into a transparent, efficient, and scalable process across cities and agencies.
 
 ---
